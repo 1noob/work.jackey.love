@@ -9,11 +9,11 @@ import { ChillReunion } from "@/fonts/font";
 export const metadata = {
   title: "SONG",
   description:
-    "ACMer / LOLer",
+    "IT 工程师",
   openGraph: {
     title: "SONG",
     description:
-      "ACMer / LOLer",
+      "IT 工程师",
     url: "https://work.jackey.love",
     siteName: "SONG's blog",
   },
