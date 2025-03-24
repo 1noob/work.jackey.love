@@ -9,13 +9,13 @@ import { ChillReunion } from "@/fonts/font";
 export const metadata = {
   title: "SONG",
   description:
-    "IT 工程师",
+    "IT Engineer",
   openGraph: {
-    title: "SONG",
+    title: "周颂杰",
     description:
-      "IT 工程师",
+      "IT Engineer",
     url: "https://work.jackey.love",
-    siteName: "SONG's blog",
+    siteName: "Work Blog",
   },
   twitter: {
     card: "summary_large_image",
