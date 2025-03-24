@@ -8,10 +8,10 @@ export async function GET() {
   <feed xmlns="http://www.w3.org/2005/Atom">
     <title>SONG</title>
     <subtitle>Essays</subtitle>
-    <link href="https://song.jackey.love/atom" rel="self"/>
-    <link href="https://song.jackey.love/"/>
+    <link href="https://work.jackey.love/atom" rel="self"/>
+    <link href="https://work.jackey.love/"/>
     <updated>${posts[0].date}</updated>
-    <id>https://song.jackey.love/</id>
+    <id>https://work.jackey.love/</id>
     <author>
       <name>SONG</name>
       <email>song@jackey.love</email>
@@ -23,7 +23,7 @@ export async function GET() {
         <entry>
           <id>${post.id}</id>
           <title>${post.title}</title>
-          <link href="https://song.jackey.love/${dateMatch[0]}/${post.id}"/>
+          <link href="https://work.jackey.love/${dateMatch[0]}/${post.id}"/>
           <updated>${post.date}</updated>
         </entry>`;
     }, "")}
