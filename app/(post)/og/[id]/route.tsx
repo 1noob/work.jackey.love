@@ -52,7 +52,7 @@ export async function GET(_req: Request, props) {
             SONG
           </div>
           <div tw="grow" />
-          <div tw="text-[28px]">工作记录</div>
+          <div tw="text-[28px]">NOTE</div>
         </header>
 
         <main tw="flex grow pb-3 flex-col items-center justify-center">

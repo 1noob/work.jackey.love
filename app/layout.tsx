@@ -14,7 +14,7 @@ export const metadata = {
     title: "周颂杰",
     description:
       "IT Engineer",
-    url: "https://work.jackey.love",
+    url: "https://note.jackey.love",
     siteName: "Work Blog",
   },
   twitter: {
@@ -22,7 +22,7 @@ export const metadata = {
     site: "@zhousongjie",
     creator: "@zhousongjie",
   },
-  metadataBase: new URL("https://work.jackey.love"),
+  metadataBase: new URL("https://note.jackey.love"),
 };
 
 export const viewport = {

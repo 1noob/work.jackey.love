@@ -17,7 +17,7 @@ export default function LinkHead({ params }: { params: { id: string } }) {
       <meta name="twitter:site" content="@zhousongjie" />
       <meta
         property="og:image"
-        content={`https://work.jackey.love/og/${link.image}`}
+        content={`https://note.jackey.love/og/${link.image}`}
       />
     </>
   );
