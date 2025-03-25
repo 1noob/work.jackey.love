@@ -15,7 +15,7 @@ export const metadata = {
     description:
       "IT Engineer",
     url: "https://note.jackey.love",
-    siteName: "Work Blog",
+    siteName: "Note",
   },
   twitter: {
     card: "summary_large_image",

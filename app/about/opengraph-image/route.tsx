@@ -56,7 +56,7 @@ export async function GET() {
                 <span tw="text-gray-400 mr-3">&mdash;</span> Computer Science &bull; GDUFE
               </div>
               <div tw="flex mb-5" style={font("Mono 400")}>
-                <span tw="text-gray-400 mr-3">&mdash;</span> Electronic Information &bull; FDU
+                <span tw="text-gray-400 mr-3">&mdash;</span> IT Engineer &bull; Weideya Tech
               </div>
               <div tw="flex" style={font("Mono 400")}>
                 <span tw="text-gray-400 mr-3">&mdash;</span> Guangdong, China
