@@ -17,7 +17,7 @@ export function withHeadingId(children) {
                 invisible
                 [span:hover_&]:visible
                 font-mono
-                font-normal
+                font-light
                 text-gray-400
                 hover:text-gray-600
                 dark:text-gray-500

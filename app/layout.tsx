@@ -37,7 +37,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${UranusPixel.variable} font-pixel antialiased`}
+      className={`${UranusPixel.variable} font-pixel antialiased font-light`}
       suppressHydrationWarning={true}
     >
       <head>
@@ -53,7 +53,6 @@ export default function RootLayout({
           <Header />
           {children}
         </main>
-
         <Footer />
         <Analytics />
       </body>
