@@ -6,7 +6,7 @@ export function Footer() {
       <div className="grow text-left">
         SONG (
         <A target="_blank" href="mailto://zhousongjie@weideya.tech">
-          周颂杰
+          @周颂杰
         </A>
         )
       </div>
