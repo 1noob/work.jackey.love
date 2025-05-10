@@ -1,4 +1,6 @@
 import { Children } from "react";
+import { type ClassValue, clsx } from "clsx";
+import { twMerge } from "tailwind-merge";
 
 export function withHeadingId(children) {
   return Children.map(children, el => {
@@ -43,3 +45,9 @@ export function withHeadingId(children) {
     return el;
   });
 }
+
+
+export function cn(...inputs: ClassValue[]) {
+  return twMerge(clsx(inputs));
+}
+
