@@ -1,7 +1,5 @@
 import { Header } from "./header";
 import { getPosts } from "../get-posts";
-import { WDYGantt as Gantt} from "./components/gantt";
-import dayjs from "dayjs";
 
 export const revalidate = 60;
 
