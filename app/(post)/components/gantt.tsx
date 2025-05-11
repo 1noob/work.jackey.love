@@ -55,7 +55,7 @@ export const WDYGantt = ({ title, data, dependencies, className, unit }: GanttPr
                 ]}
                 dependencies={dependencies}
                 tableIndent={16}
-                onUpdate={async () => false}
+                onUpdate={async () => true}
                 getBarColor={() => ({
                     backgroundColor: 'red',
                     borderColor: 'yellow',
