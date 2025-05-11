@@ -64,16 +64,16 @@ export const WDYGantt = ({ title, data, dependencies, className, unit }: GanttPr
                 alwaysShowTaskBar={false}
                 unit={unit}
             />
-            <div className='m-auto max-w-2xl w-full flex justify-between px-6'>
+            <div className='m-auto max-w-[624px] w-full flex justify-between bg-gray-800/5 dark:bg-gray-100/5 rounded-sm'>
                 <button
                     onClick={() => simulateSvgScroll(-scrollAmount)}
-                    className="bg-gray-800/5 dark:bg-gray-100/5 rounded-sm px-3 py-1"
+                    className="border-r border-gray-300 dark:border-gray-600 px-3 py-1"
                 >
                     &lt;
                 </button>
                 <button
                     onClick={() => simulateSvgScroll(scrollAmount)}
-                    className="bg-gray-800/5 dark:bg-gray-100/5 rounded-sm px-3 py-1"
+                    className="border-l border-gray-300 dark:border-gray-600 px-3 py-1"
                 >
                     &gt;
                 </button>
