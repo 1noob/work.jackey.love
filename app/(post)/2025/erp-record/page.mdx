@@ -8,4 +8,43 @@ export const metadata = {
   }
 }
 
-<Gantt title="金蝶云星空实施进度" className="absolute left-0 mb-[100%] mt-5 min-h-dvh"/>
+<Gantt 
+  title="金蝶云星空实施进度" 
+  className="absolute left-0 mb-[100%] mt-5"
+  data={[
+    {
+      name: '系统安装部署',
+      startDate: '2025-02-26',
+      endDate: '2025-02-27',
+    },
+    {
+      name: '基础功能探索',
+      startDate: '2025-03-01',
+      endDate: '2025-03-30',
+    },
+    {
+      name: '全流程记录',
+      startDate: '2025-04-01',
+      endDate: '2025-04-10',
+      collapsed: true,
+      children:[
+        {
+          name: '进销存',
+          startDate: '2025-04-01',
+          endDate: '2025-04-05',
+          collapsed: true,
+          children:[
+            {
+              name: '采购管理',
+              startDate: '2025-04-01',
+              endDate: '2025-04-03',
+            }
+          ]
+        }
+      ]
+    }
+  ]}
+
+
+
+/>

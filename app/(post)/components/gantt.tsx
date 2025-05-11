@@ -1,16 +1,17 @@
 'use client';
 
-import RcGantt from 'rc-gantt';
+import RcGantt, { Gantt } from 'rc-gantt';
 import React, { useRef, useEffect } from 'react';
 import { cn } from './utils';
 
 interface GanttProps {
     title: string;
     data: any;
+    dependencies?: Gantt.Dependence[];
     className?: string;
 }
 
-export const WDYGantt = ({ title, data, className }: GanttProps) => {
+export const WDYGantt = ({ title, data, dependencies, className }: GanttProps) => {
     // 用于查找容器（建议注意 RcGantt 内部的渲染结构，如果需要可改为查询 svg 元素）
     const containerRef = useRef<HTMLDivElement>(null);
     const scrollAmount = 100; // 每次滚动的像素数
@@ -31,7 +32,7 @@ export const WDYGantt = ({ title, data, className }: GanttProps) => {
     };
 
     return (
-        <div ref={containerRef} className={cn("flex flex-col gap-4 w-full h-[calc(100vh-190px)] z-10", className)}>
+        <div ref={containerRef} className={cn("flex flex-col gap-4 w-full h-[calc(100svh-190px)] z-10", className)}>
             <RcGantt
                 data={data}
                 columns={[
@@ -41,6 +42,7 @@ export const WDYGantt = ({ title, data, className }: GanttProps) => {
                         width: 100,
                     },
                 ]}
+                dependencies={dependencies}
                 tableIndent={0}
                 onUpdate={async () => true}
                 getBarColor={() => ({
@@ -48,10 +50,9 @@ export const WDYGantt = ({ title, data, className }: GanttProps) => {
                     borderColor: 'yellow',
                 })}
                 hideTable={false}
-                alwaysShowTaskBar={true}
-                unit={'day'}
+                alwaysShowTaskBar={false}
             />
-            <div className='m-auto max-w-2xl w-full flex justify-between gap-4 px-6'>
+            <div className='m-auto max-w-2xl w-full flex justify-between px-6'>
                 <button
                     onClick={() => simulateWheelEvent(-scrollAmount)}
                     className=" bg-gray-200 rounded-sm px-3 py-1"
