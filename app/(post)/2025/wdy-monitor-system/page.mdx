@@ -14,12 +14,52 @@ export const metadata = {
   unit='day'
   data={[
     {
-      name: '交换机、录像机安装调试',
-      startDate: '2025-05-08',
-      endDate: '2025-05-09',
+      name: '一期：厂房一外部监控',
       id: '1',
-    }
+      collapsed: true,
+      children:[
+        {
+            name: '交换机、录像机调试',
+            startDate: '2025-05-08',
+            endDate: '2025-05-09',
+            id: '1-1',
+        },
+        {
+            name: '点位布管布线',
+            id: '1-2',
+        },
+        {
+            name: '摄像头连接调试',
+            id: '1-3',
+        },
+      ]
+    },
+    {
+      name: '二期：厂房一内部监控',
+      id: '2',
+      collapsed: true,
+      children:[
+        {
+            name: '交换机、录像机调试',
+            id: '2-1',
+        },
+        {
+            name: '点位布管布线',
+            id: '2-2',
+        },
+        {
+            name: '摄像头连接调试',
+            id: '2-3',
+        },
+      ]
+    },
   ]}
   dependencies={[
+    {
+      from: '1',
+      to: '2',
+      type: 'finish_start',
+      color: 'blue'
+    },
   ]}
 />
