@@ -1,7 +1,7 @@
 'use client';
 
 import RcGantt, { Gantt } from 'rc-gantt';
-import React, { useRef, useEffect } from 'react';
+import React, { useRef } from 'react';
 import { cn } from './utils';
 
 interface GanttProps {
@@ -12,22 +12,32 @@ interface GanttProps {
 }
 
 export const WDYGantt = ({ title, data, dependencies, className }: GanttProps) => {
-    // 用于查找容器（建议注意 RcGantt 内部的渲染结构，如果需要可改为查询 svg 元素）
     const containerRef = useRef<HTMLDivElement>(null);
-    const scrollAmount = 100; // 每次滚动的像素数
+    const scrollAmount = 100; // 滚动量，单位为像素
 
-    const simulateWheelEvent = (deltaX: number) => {
+    const simulateSvgScroll = (deltaX: number) => {
         if (containerRef.current) {
-            // 如果 RcGantt 内部监听的是 svg 上的滚动，可先找到 svg 元素：
-            const svgEl = containerRef.current.querySelector('svg');
-            const targetEl = svgEl || containerRef.current;
-            const wheelEvent = new WheelEvent('wheel', {
-                deltaX,
-                deltaY: 0,
-                deltaMode: WheelEvent.DOM_DELTA_PIXEL,
-                bubbles: true,
-            });
-            targetEl.dispatchEvent(wheelEvent);
+            // 根据类名查找 svg 元素
+            const svgEl = containerRef.current.querySelector('svg.gantt-chart-svg-renderer');
+            if (svgEl) {
+                // 使用 svg 的中心位置作为事件的 client 坐标
+                const rect = svgEl.getBoundingClientRect();
+                const clientX = rect.left + rect.width / 2;
+                const clientY = rect.top + rect.height / 2;
+                
+                const wheelEvent = new WheelEvent('wheel', {
+                    deltaX,
+                    deltaY: 0,
+                    deltaMode: WheelEvent.DOM_DELTA_PIXEL,
+                    clientX,
+                    clientY,
+                    bubbles: true,
+                    cancelable: true,
+                });
+                svgEl.dispatchEvent(wheelEvent);
+            } else {
+                console.warn('SVG 元素未找到');
+            }
         }
     };
 
@@ -43,7 +53,7 @@ export const WDYGantt = ({ title, data, dependencies, className }: GanttProps) =
                     },
                 ]}
                 dependencies={dependencies}
-                tableIndent={0}
+                tableIndent={16}
                 onUpdate={async () => true}
                 getBarColor={() => ({
                     backgroundColor: 'red',
@@ -51,17 +61,18 @@ export const WDYGantt = ({ title, data, dependencies, className }: GanttProps) =
                 })}
                 hideTable={false}
                 alwaysShowTaskBar={false}
+                unit='month'
             />
             <div className='m-auto max-w-2xl w-full flex justify-between px-6'>
                 <button
-                    onClick={() => simulateWheelEvent(-scrollAmount)}
-                    className=" bg-gray-200 rounded-sm px-3 py-1"
+                    onClick={() => simulateSvgScroll(-scrollAmount)}
+                    className="bg-gray-800/5 dark:bg-gray-100/5 rounded-sm px-3 py-1"
                 >
                     &lt;
                 </button>
                 <button
-                    onClick={() => simulateWheelEvent(scrollAmount)}
-                    className=" bg-gray-200 rounded-sm px-3 py-1"
+                    onClick={() => simulateSvgScroll(scrollAmount)}
+                    className="bg-gray-800/5 dark:bg-gray-100/5 rounded-sm px-3 py-1"
                 >
                     &gt;
                 </button>

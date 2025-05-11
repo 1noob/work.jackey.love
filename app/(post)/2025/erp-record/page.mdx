@@ -15,18 +15,21 @@ export const metadata = {
     {
       name: '系统安装部署',
       startDate: '2025-02-26',
-      endDate: '2025-02-27',
+      endDate: '2025-02-28',
+      id: '1',
     },
     {
       name: '基础功能探索',
       startDate: '2025-03-01',
       endDate: '2025-03-30',
+      id: '2',
     },
     {
-      name: '全流程记录',
+      name: '全流程学习记录',
       startDate: '2025-04-01',
-      endDate: '2025-04-10',
+      endDate: '2025-04-15',
       collapsed: true,
+      id: '3',
       children:[
         {
           name: '进销存',
@@ -35,13 +38,138 @@ export const metadata = {
           collapsed: true,
           children:[
             {
-              name: '采购管理',
+              name: '采购流程',
               startDate: '2025-04-01',
               endDate: '2025-04-03',
+            },
+            {
+              name: '销售流程',
+              startDate: '2025-04-04',
+              endDate: '2025-04-05',
+            },
+            {
+              name: '库存管理',
+              startDate: '2025-04-04',
+              endDate: '2025-04-05',
+            },
+          ]
+        },
+        {
+          name: '生产管理',
+          startDate: '2025-04-06',
+          endDate: '2025-04-12',
+          collapsed: true,
+          children:[
+            {
+              name: '工程数据',
+              startDate: '2025-04-06',
+              endDate: '2025-04-08',
+            },
+            {
+              name: '生产计划',
+              startDate: '2025-04-06',
+              endDate: '2025-04-08',
+            },
+            {
+              name: '生产流程',
+              startDate: '2025-04-9',
+              endDate: '2025-04-10',
+            },
+            {
+              name: '车间管理',
+              startDate: '2025-04-10',
+              endDate: '2025-04-11',
+            },
+            {
+              name: '质量管理',
+              startDate: '2025-04-11',
+              endDate: '2025-04-12',
+            },
+          ]
+        },
+        {
+          name: '财务会计',
+          startDate: '2025-04-09',
+          endDate: '2025-04-14',
+          collapsed: true,
+          children:[
+            {
+              name: '成本核算',
+              startDate: '2025-04-09',
+              endDate: '2025-04-10',
+            },
+            {
+              name: '资产管理',
+              startDate: '2025-04-11',
+              endDate: '2025-04-12',
+            },
+            {
+              name: '总账报表',
+              startDate: '2025-04-13',
+              endDate: '2025-04-14',
             }
           ]
         }
       ]
+    },
+    {
+      name: '实施顾问咨询',
+      startDate: '2025-04-30',
+      endDate: '2025-05-14',
+      id: '4',
+      collapsed: true,
+      children:[
+        {
+          name: '物料导入咨询',
+          startDate: '2025-04-30',
+          endDate: '2025-04-30',
+          id: '4-1'
+        },
+        {
+          name: '全流程自测',
+          startDate: '2025-05-13',
+          endDate: '2025-05-13',
+          id: '4-2'
+        },
+        {
+          name: '全流程演示',
+          startDate: '2025-05-14',
+          endDate: '2025-05-14',
+          id: '4-3'
+        },
+      ]
+    }
+  ]}
+  dependencies={[
+    {
+      from: '1',
+      to: '2',
+      type: 'finish_start',
+      color: 'blue'
+    },
+    {
+      from: '2',
+      to: '3',
+      type: 'finish_start',
+      color: 'blue'
+    },
+    {
+      from: '3',
+      to: '4',
+      type: 'finish_start',
+      color: 'blue'
+    },
+    {
+      from: '4-1',
+      to: '4-2',
+      type: 'finish_start',
+      color: 'blue'
+    },
+    {
+      from: '4-2',
+      to: '4-3',
+      type: 'finish_start',
+      color: 'blue'
     }
   ]}
 
