@@ -1,0 +1,25 @@
+export const metadata = {
+  title: 'SONG的工作记录',
+  description: '维德亚监控系统',
+  openGraph: {
+    title: 'SONG的工作记录',
+    description: '维德亚监控系统',
+    images: [{ url: '/og/wdy-monitor-system' }],
+  }
+}
+
+<Gantt 
+  title="维德亚监控部署进度" 
+  className="absolute left-0 mb-[100%] mt-5"
+  unit='day'
+  data={[
+    {
+      name: '交换机、录像机安装调试',
+      startDate: '2025-05-08',
+      endDate: '2025-05-09',
+      id: '1',
+    }
+  ]}
+  dependencies={[
+  ]}
+/>

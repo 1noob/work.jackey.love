@@ -9,9 +9,10 @@ interface GanttProps {
     data: any;
     dependencies?: Gantt.Dependence[];
     className?: string;
+    unit?: Gantt.Sight
 }
 
-export const WDYGantt = ({ title, data, dependencies, className }: GanttProps) => {
+export const WDYGantt = ({ title, data, dependencies, className, unit }: GanttProps) => {
     const containerRef = useRef<HTMLDivElement>(null);
     const scrollAmount = 100; // 滚动量，单位为像素
 
@@ -61,7 +62,7 @@ export const WDYGantt = ({ title, data, dependencies, className }: GanttProps) =
                 })}
                 hideTable={false}
                 alwaysShowTaskBar={false}
-                unit='month'
+                unit={unit}
             />
             <div className='m-auto max-w-2xl w-full flex justify-between px-6'>
                 <button
