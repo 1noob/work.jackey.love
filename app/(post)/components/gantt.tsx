@@ -43,7 +43,7 @@ export const WDYGantt = ({ title, data, dependencies, className, unit }: GanttPr
     };
 
     return (
-        <div ref={containerRef} className={cn("flex flex-col gap-4 w-full h-[calc(100svh-190px)] z-10", className)}>
+        <div ref={containerRef} className={cn("flex flex-col gap-4 w-full h-[calc(100svh-190px)] z-10 mt-5", className)}>
             <RcGantt
                 data={data}
                 columns={[
