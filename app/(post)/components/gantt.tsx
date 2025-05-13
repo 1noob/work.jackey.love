@@ -64,7 +64,7 @@ export const WDYGantt = ({ title, data, dependencies, className, unit }: GanttPr
                     borderColor: 'yellow',
                 })}
                 hideTable={false}
-                alwaysShowTaskBar={true}
+                alwaysShowTaskBar={false}
                 unit={unit}
             />
             <div className='m-auto max-w-[624px] w-full flex justify-between bg-gray-800/5 dark:bg-gray-100/5 rounded-sm'>
