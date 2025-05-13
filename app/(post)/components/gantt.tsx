@@ -1,8 +1,10 @@
 'use client';
 
 import RcGantt, { Gantt } from 'rc-gantt';
-import React, { useRef } from 'react';
+import React, { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import { cn } from './utils';
+import { useWindowSize } from "rooks";
+import { tr } from 'date-fns/locale';
 
 interface GanttProps {
     title: string;
@@ -13,6 +15,7 @@ interface GanttProps {
 }
 
 export const WDYGantt = ({ title, data, dependencies, className, unit }: GanttProps) => {
+    const { width } = useWindowSize();
     const containerRef = useRef<HTMLDivElement>(null);
     const scrollAmount = 100; // 滚动量，单位为像素
 
@@ -25,7 +28,7 @@ export const WDYGantt = ({ title, data, dependencies, className, unit }: GanttPr
                 const rect = svgEl.getBoundingClientRect();
                 const clientX = rect.left + rect.width / 2;
                 const clientY = rect.top + rect.height / 2;
-                
+
                 const wheelEvent = new WheelEvent('wheel', {
                     deltaX,
                     deltaY: 0,
@@ -61,7 +64,7 @@ export const WDYGantt = ({ title, data, dependencies, className, unit }: GanttPr
                     borderColor: 'yellow',
                 })}
                 hideTable={false}
-                alwaysShowTaskBar={false}
+                alwaysShowTaskBar={true}
                 unit={unit}
             />
             <div className='m-auto max-w-[624px] w-full flex justify-between bg-gray-800/5 dark:bg-gray-100/5 rounded-sm'>
